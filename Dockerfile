@@ -4,8 +4,8 @@ EXPOSE 8080
 
 ENV APP_HOME /usr/src/app
 
-# Copy only the runnable jar (this pattern won't match *.jar.original)
-COPY target/twitter-app-*.jar $APP_HOME/app.jar
+# Copy the normalized jar created by the Jenkins Prepare Docker Context stage
+COPY target/app.jar $APP_HOME/app.jar
 
 WORKDIR $APP_HOME
 
